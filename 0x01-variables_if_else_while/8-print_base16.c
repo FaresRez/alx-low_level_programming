@@ -12,10 +12,10 @@
 
 int main(void)
 {
-	int c;
+	char c;
 
-	for (c = 48; c <= 57; c++)
-		printf("%d", c);
+	for (c = 'z'; c >= 'a'; c--)
+		putchar(c);
 
 	putchar('\n');
 	return (0);
