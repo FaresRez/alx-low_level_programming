@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * print_alphabet - print alphabet in uppercase
+ * print_alphabet_x10 - print alphabet in uppercase x10
  */
 
 void print_alphabet_x10(void)
