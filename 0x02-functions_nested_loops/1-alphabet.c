@@ -2,9 +2,7 @@
 #include "main.h"
 
 /**
- * function - check the code
- *
- *
+ * print_alphabet - print alphabet in uppercase
  */
 
 void print_alphabet(void)
