@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include "main.h"
-
+#include <stdio.h>
 /**
  * main - check the code.
  *
@@ -8,12 +8,13 @@
  */
 int main(void)
 {
-	int i,s;
+	int i, s;
 
 	for (i = 1; i < 1024; i++)
 	{
-		if(i % 5 == 0 || i % 3 == 0)
-			s += i ;
+		if (i % 5 == 0 || i % 3 == 0)
+			s += i;
 	}
+	printf("%d\n", s);
 	return (0);
 }
