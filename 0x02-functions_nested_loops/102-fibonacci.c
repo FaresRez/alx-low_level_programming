@@ -19,7 +19,7 @@ int main(void)
 		j = seq;
 		printf("%lu", seq);
 		if (count < 49)
-			printf(",");
+			printf(", ");
 	}
 	printf("\n");
 	return (0);
