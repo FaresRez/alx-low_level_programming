@@ -1,4 +1,4 @@
-nclude <stdio.h>
+#include < stdio.h >
 
 /**
  * main - Entry point
@@ -21,6 +21,6 @@ int main(void)
 		if (count < 49)
 			printf(",");
 	}
-	printf("\n");	
+	printf("\n");
 	return (0);
 }
