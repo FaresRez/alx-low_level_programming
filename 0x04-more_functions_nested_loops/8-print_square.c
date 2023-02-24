@@ -3,20 +3,20 @@
 
 /**
  * print_square - print a square using putchar
- *@size: square size
+ * @size: square size
  *
  * Return: square
  */
 
-void print_square(int n)
+void print_square(int size)
 {
 	int i, j;
 
 	if (n > 0)
-		for (i = 0; i <= n; i++)
+		for (i = 1; i <= size; i++)
 		{
 			_putchar('\n');
-			for (j = 0; j <= n; j++)
+			for (j = 1; j <= size; j++)
 				_putchar('#');
 		}
 	_putchar('\n');
