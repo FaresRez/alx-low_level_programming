@@ -2,12 +2,12 @@
 #include "main.h"
 
 /**
- * print_numbers - print numbers from 0 to 9 using putchar
+ * print_most_numbers - print numbers from 0 to 9 using putchar
  *
  * Return: 0
  */
 
-void print_numbers(void)
+void print_most_numbers(void)
 {
 	int i;
 
