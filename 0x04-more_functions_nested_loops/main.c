@@ -7,8 +7,9 @@
  *     */
 int main(void)
 {
-	    print_square(-10);
-	        print_square(3);
-		    print_square(9);
-		        return (0);
+	    print_line(0);
+	        print_line(2);
+		    print_line(10);
+		        print_line(-4);
+			    return (0);
 }
