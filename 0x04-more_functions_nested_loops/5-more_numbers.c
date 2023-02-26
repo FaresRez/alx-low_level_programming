@@ -2,17 +2,26 @@
 #include "main.h"
 
 /**
- * print_numbers - print numbers from 0 to 9 using putchar
+ * more_numbers - print numbers 0 to 14 10 times using putchar
  *
  * Return: 0
  */
 
-void print_numbers(void)
+void more_numbers(void)
 {
-	int i;
+	int i, j = 1;
 
-	for (i = 0; i <= 9; i++)
-		_putchar(i + '0');
-	_putchar('\n');
+	while (j < 11)
+	{
+		for (i = 0; i <= 9; i++)
+			putchar(i + '0');
 
+		for (i = 0; i <= 4; i++)
+		{
+			putchar(1 + '0');
+			putchar(i + '0');
+		}
+		putchar('\n');
+		j++;
+	}
 }
