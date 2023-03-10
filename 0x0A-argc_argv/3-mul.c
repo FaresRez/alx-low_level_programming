@@ -6,8 +6,6 @@
  * main - multiplie two numbers
  * @argc: contain the nb of the prog args
  * @argv: the strig table contaning all the prog args
- * @a: first number
- * @b: second number
  *
  * Return: print a*b
  */
@@ -19,7 +17,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
-	else 
+	else
 		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
 	return (0);
 }
