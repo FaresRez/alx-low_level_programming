@@ -4,9 +4,8 @@
 #include <stdlib.h>
 
 /**
- * create_array - create an array with malloc
- * @size: size of the array
- * @c: a caracter for init
+ * _strdup - reserve a memory for a string copy with malloc
+ * @str: pointer to string
  *
  * Return: a pointer or NULL
  */
@@ -24,7 +23,7 @@ char *_strdup(char *str)
 		i++;
 		str++;
 	}
-	p = malloc(sizeof(char) * i);
+	p = malloc(sizeof(char) * i + 1);
 	if (p == NULL)
 		return (NULL);
 	str -= i;
