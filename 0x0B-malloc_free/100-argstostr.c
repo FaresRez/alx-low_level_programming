@@ -15,6 +15,7 @@ char *str_concat(char *s1, char *s2)
 {
 	int i = 0, j = 0;
 	char *p;
+	char *res;
 
 	if (s1 == NULL)
 	{
@@ -39,7 +40,9 @@ char *str_concat(char *s1, char *s2)
 		*p++ = *s2++;
 	*p = '\0';
 	p -= i + j;
-	return (p);
+	res = p;
+	free(p);
+	return (res);
 
 }
 /**
