@@ -4,12 +4,13 @@
 #include <stdlib.h>
 
 /**
- * argstostr - concat all args of your program with malloc
- * @ac: nb des args
- * @av: pointer to pointer to array of args
+ * str_concat - concat 2 strings and assign them to new copy with malloc
+ * @s1: pointer to string 1
+ * @s2: pointer to string 2
  *
  * Return: a pointer or NULL
  */
+
 char *str_concat(char *s1, char *s2)
 {
 	int i = 0, j = 0;
@@ -41,7 +42,13 @@ char *str_concat(char *s1, char *s2)
 	return (p);
 
 }
-
+/**
+ * argstostr - concat all args of your program with malloc
+ * @ac: nb des args
+ * @av: pointer to pointer to array of args
+ *
+ * Return: a pointer or NULL
+ */
 char *argstostr(int ac, char **av)
 {
 	int i;
@@ -55,5 +62,5 @@ char *argstostr(int ac, char **av)
 		p = str_concat(p, "\n");
 	}
 	return (p);
-	
+
 }
