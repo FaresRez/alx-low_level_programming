@@ -45,7 +45,7 @@ char *str_concat(char *s1, char *s2)
 char *argstostr(int ac, char **av)
 {
 	int i;
-	char *p = malloc(sizeof(char) * ac + 1);
+	char *p = malloc(sizeof(char) * ac);
 
 	if (ac == 0 || av == NULL || p == NULL)
 		return (NULL);
