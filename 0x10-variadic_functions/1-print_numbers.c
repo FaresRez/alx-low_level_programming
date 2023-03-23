@@ -1,0 +1,36 @@
+#include <unistd.h>
+#include "variadic_functions.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+
+/**
+ * print_numbers -  print all the variadic function args
+ * @separator: pointer to string to be printed between numbers
+ * @n: nb of args
+ *
+ * Return: void
+ */
+void print_numbers(const char *separator, const unsigned int n, ...)
+{
+	va_list list;
+	unsigned int i;
+
+	if (separator == NULL)
+	{
+		separator = "";
+	}
+	va_start(list, n);
+
+	for (i = 0; i < n; i++)
+	{
+		if (i == n - 1)
+			printf("%d", va_arg(list, int));
+		else
+			printf("%d%s", va_arg(list, int), separator);
+	}
+	printf("\n");
+	va_end(list);
+
+}
+
