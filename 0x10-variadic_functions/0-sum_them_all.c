@@ -6,7 +6,7 @@
 
 /**
  * sum_them_all - calculate the sum of all the variadic function args
- * @grid: nb of args
+ * @n: nb of args
  *
  * Return: sum
  */
