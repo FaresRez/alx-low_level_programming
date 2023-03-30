@@ -4,11 +4,10 @@
 #include "lists.h"
 
 /**
- * print_strings -  print all the variadic function args
- * @separator: pointer to string to be printed between numbers
- * @n: nb of args
+ * print_list -  print all the node of a linked list
+ * @h: pointer to a node
  *
- * Return: void
+ * Return: number of nodes
  */
 size_t print_list(const list_t *h)
 {
@@ -16,14 +15,14 @@ size_t print_list(const list_t *h)
 
 	while (h != NULL)
 	{
-		if (h -> str == NULL)
+		if (h->str == NULL)
 			printf("[0] (nil)\n");
 		else
 		{
-			printf("[%d] %s\n",h -> len, h -> str);
+			printf("[%d] %s\n", h->len, h->str);
 		}
 		i++;
-		h = h -> next;
+		h = h->next;
 	}
 	return (i);
 }
