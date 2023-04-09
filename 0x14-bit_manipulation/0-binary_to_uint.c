@@ -18,7 +18,7 @@ unsigned int binary_to_uint(const char *b)
 		j++;
 	for (i = j; i >= 0; i--)
 	{
-		if (b[i] != '0' && b[i] != '1')
+		if ((b[i] != '0' && b[i] != '1') || b == NULL)
 			return (0);
 		if (b[i] == '1')
 			sum += c;
