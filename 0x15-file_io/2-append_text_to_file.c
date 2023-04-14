@@ -7,7 +7,7 @@
 #include "main.h"
 
 /**
- * create_file - create a file
+ * append_text_to_file - append a text to a file
  * @filename: the adresse of a file
  * @text_content: the data to write in the file
  *
@@ -15,5 +15,21 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
+	int f, s;
 
+	if (filename == NULL)
+		return (-1);
+	f = open(filename, O_EXCL | O_WRONLY | O_APPEND);
+	if (f == -1)
+		return (-1);
+	if (text_content != NULL)
+	{
+		s = write(f, text_content, strlen(text_content));
+		if (s == -1)
+		{
+			close(f);
+			return (-1);
+		}
+	}
+	return (1);
 }

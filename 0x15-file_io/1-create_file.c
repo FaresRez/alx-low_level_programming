@@ -27,16 +27,14 @@ int create_file(const char *filename, char *text_content)
 		else
 			return (-1);
 	}
-	if (text_content == NULL)
+	if (text_content != NULL)
 	{
-		close(f);
-		return (-1);
-	}
-	s = write(f, text_content, strlen(text_content));
-	if (s == -1)
-	{
-		close(f);
-		return (-1);
+		s = write(f, text_content, strlen(text_content));
+		if (s == -1)
+		{
+			close(f);
+			return (-1);
+		}
 	}
 	close(f);
 	return (1);
