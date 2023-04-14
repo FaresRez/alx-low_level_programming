@@ -23,9 +23,14 @@ int create_file(const char *filename, char *text_content)
 	if (f == -1)
 	{
 		if (errno == EEXIST)
-			f = open(filename, O_CREAT | O_WRONLY);
+			f = open(filename, O_CREAT | O_WRONLY | O_TRUNC);
 		else
 			return (-1);
+	}
+	if (text_content == NULL)
+	{
+		close(f);
+		return (-1);
 	}
 	s = write(f, text_content, strlen(text_content));
 	if (s == -1)
