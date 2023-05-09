@@ -30,32 +30,44 @@ int main(int ac, char **av)
 	int ft, ff, st, sf;
 	char buffer[1024];
 
+	/*argument handling*/
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	ft = open(av[2], O_EXCL | O_WRONLY | O_APPEND, 0664);
+	/*file_from handling*/
+	ff = open(av[1],O_RDONLY);
+        if (ff == -1)
+        {
+                dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+                exit(98);
+        }
+        sf = read(ff, buffer, 1024);
+        if (sf == -1)
+        {
+                dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+                if (close(ff) == -1)
+                        Err_close(ff);
+                exit(98);
+        }
+	/*file_to handling*/	
+	ft = open(av[2],O_CREAT | O_EXCL | O_WRONLY | O_APPEND, 0664);
 	if (ft == -1)
 	{
 		if (errno == EEXIST)
-			ft = open(av[2], O_EXCL | O_WRONLY | O_TRUNC);
+			ft = open(av[2],O_WRONLY | O_TRUNC);
 		else
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[1]);
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
 			exit(99);
 		}
 	}
-	ff = open(av[1], O_EXCL | O_WRONLY);
-	if (ff == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[0]);
-		exit(98);
-	}
+	/*coping process*/
 	sf = read(ff, buffer, 1024);
 	if (sf == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[0]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		if (close(ff) == -1)
 			Err_close(ff);
 		exit(98);
@@ -70,7 +82,7 @@ int main(int ac, char **av)
 	}
 	if (close(ff) == -1)
 		Err_close(ff);
-	else if (close(ft) == -1)
+	if (close(ft) == -1)
 		Err_close(ft);
 	return (0);
 }
