@@ -44,7 +44,7 @@ int main(int ac, char **av)
                 exit(98);
         }
 	/*file_to handling*/	
-	ft = open(av[2],O_CREAT | O_EXCL | O_WRONLY | O_APPEND, 0664);
+	ft = open(av[2],O_CREAT | O_EXCL | O_WRONLY, 0664);
 	if (ft == -1)
 	{
 		if (errno == EEXIST)
@@ -69,7 +69,7 @@ int main(int ac, char **av)
 		st = write(ft, buffer, sf);
 		if (st == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[1]);
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
 			if (close(ft) == -1)
 				Err_close(ft);
 			exit(99);
