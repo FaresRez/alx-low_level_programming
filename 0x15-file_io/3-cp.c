@@ -27,8 +27,8 @@ void Err_close(int file)
  */
 int main(int ac, char **av)
 {
-	int ft, ff, st, sf;
-	char buffer[1024];
+	int ft, ff, st, sf = 1024;
+	char buffer[1025];
 
 	/*argument handling*/
 	if (ac != 3)
@@ -41,14 +41,6 @@ int main(int ac, char **av)
         if (ff == -1)
         {
                 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-                exit(98);
-        }
-        sf = read(ff, buffer, 1024);
-        if (sf == -1)
-        {
-                dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-                if (close(ff) == -1)
-                        Err_close(ff);
                 exit(98);
         }
 	/*file_to handling*/	
@@ -64,21 +56,24 @@ int main(int ac, char **av)
 		}
 	}
 	/*coping process*/
-	sf = read(ff, buffer, 1024);
-	if (sf == -1)
+	while (sf == 1024)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		if (close(ff) == -1)
-			Err_close(ff);
-		exit(98);
-	}
-	st = write(ft, buffer, 1024);
-	if (st == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[1]);
-		if (close(ft) == -1)
-			Err_close(ft);
-		exit(99);
+		sf = read(ff, buffer, 1024);
+		if (sf == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+			if (close(ff) == -1)
+				Err_close(ff);
+			exit(98);
+		}
+		st = write(ft, buffer, sf);
+		if (st == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[1]);
+			if (close(ft) == -1)
+				Err_close(ft);
+			exit(99);
+		}
 	}
 	if (close(ff) == -1)
 		Err_close(ff);
