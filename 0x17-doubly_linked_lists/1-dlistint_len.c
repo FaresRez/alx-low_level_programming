@@ -3,7 +3,7 @@
  * dlistint_len - list len
  * @h: the head of the list
  *
- * Return: int 
+ * Return: int
  */
 
 size_t dlistint_len(const dlistint_t *h)
