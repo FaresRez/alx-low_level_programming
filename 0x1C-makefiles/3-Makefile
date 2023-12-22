@@ -6,7 +6,7 @@ RM = rm
 
 all: $(NAME)
 
-$(NAME): main.o school.o
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 clean:
 	$(RM) -f $(NAME) *~ .*~ *.swp *.swo || exit 1
