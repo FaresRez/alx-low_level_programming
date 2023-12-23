@@ -4,6 +4,9 @@ calculate the perimeter of the island
 """
 
 def island_perimeter(grid):
+    """
+    return the perimeter of grid
+    """
     count = 1
     for l in grid:
         for cell in l:
